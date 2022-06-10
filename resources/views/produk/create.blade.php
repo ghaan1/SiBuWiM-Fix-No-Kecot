@@ -82,15 +82,11 @@
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
-                                    {{-- <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div> --}}
 
                                     <div class="form-group mb-3">
                                         <label>Gambar Bus</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                            <input type="file" class="custom-file-input" id="gambar" name="gambar" required>
                                             <label class="custom-file-label" for="gambar">Choose file</label>
                                         </div>
                                         @error('gambar')

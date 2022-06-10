@@ -19,7 +19,7 @@ class DashboardController extends Controller
     public function index()
     {
         $data = [
-            'userCount' => User::where('role', 'usr')->count(),
+            'userCount' => User::all()->count(),
             'produkCount' => Produk::count(),
             'orderCount' => Order::count(),
             'kategoriCount' => Kategori::count(),

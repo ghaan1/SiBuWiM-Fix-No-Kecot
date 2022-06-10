@@ -35,7 +35,7 @@ class ProdukController extends Controller
                 ->addIndexColumn()
                 ->editColumn('gambar', function ($row) {
                     if ($row->gambar) {
-                        return '<img class="img-thumbnail w-100" src="' . $row->gambar . '" />';
+                        return '<img class="img-thumbnail w-100" src="/img/jadwal/' . $row->gambar . '" />';
                     }
                     return '<img class="img-thumbnail w-100" src="/img/not.png" />';
                 })
@@ -74,11 +74,11 @@ class ProdukController extends Controller
     {
 
         $payload = $request->only(['kategori_id', 'nama', 'harga', 'stok', 'deskripsi']);
-        if ($request->hasFile('gambar')) {
-            $oci = new OracleService();
+        $image= $request->file('gambar');
+        $imageName = $image->getClientOriginalName();
+        $image->move('img/jadwal', $imageName);
+        $payload['gambar'] = $imageName;
 
-            $payload['gambar'] = $oci->uploadObject($request->file('gambar'), 'uts');
-        }
         $this->model->create($payload);
         return redirect()->route('produk.index')->with('success', 'Data berhasil disimpan');
     }

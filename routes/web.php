@@ -8,6 +8,7 @@ use App\Http\Controllers\AlamatPengirimanController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartDetailController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
@@ -29,10 +30,13 @@ Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 Route::get('data-profil', [BerandaController::class, 'profil'])->name('beranda.profil');
 Route::put('data-profil/{id}', [BerandaController::class, 'updateProfil'])->name('beranda.updateprofil');
 Route::get('produk/list', [BerandaController::class, 'listProduk'])->name('beranda.listproduk');
+Route::get('produk/list/{id}', [BerandaController::class, 'listProdukKategori'])->name('beranda.listprodukkategori');
 Route::get('produk/detail/{id}', [BerandaController::class, 'detailProduk'])->name('beranda.detailproduk');
 Route::get('cari-produk', [BerandaController::class, 'cariProduk'])->name('beranda.cariProduk');
 
 Auth::routes(['verify' => true]);
+Route::get('forget-password', [AuthController::class, 'indexForgetPassword']);
+Route::post('forget-password/store', [AuthController::class, 'storeForgetPassword']);
 
 Route::middleware(['verified'])->group(function () {
     Route::get('edit-alamat-produk/{id}', [CartDetailController::class, 'editAlamat'])->name('editalamatproduk');
@@ -54,6 +58,7 @@ Route::middleware(['verified'])->group(function () {
         Route::resource('dashboard', DashboardController::class)->only(['index']);
         Route::resource('transaksi', AdminOrderController::class);
         Route::resource('user', UserController::class);
+        Route::get('userfilter/{role}', [UserController::class, 'getUserFilter'])->name('user.filter');
         Route::resource('produk', AdminProdukController::class);
         Route::resource('kategori', KategoriController::class);
     });

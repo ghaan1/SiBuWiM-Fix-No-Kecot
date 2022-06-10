@@ -54,11 +54,11 @@
                     <article class="list-product">
                         <div class="img-block">
                             <a href="{{route('beranda.detailproduk', $item->id)}}" class="thumbnail">
-                                <img class="first-img" src="{{asset('storage/produk/' . $item->gambar)}}" alt="" />
+                                <img class="first-img" src="/img/jadwal/{{$item->gambar}}" alt="" />
                             </a>
                         </div>
                         <div class="product-decs">
-                            <a class="inner-link" href="shop-4-column.html"><span class="text-uppercase">{{$item->kategori->nama}}</span></a>
+                            <a class="inner-link" href=""><span class="text-uppercase">{{$item->kategori->nama}}</span></a>
                             <h2><a href="{{route('beranda.detailproduk', $item->id)}}" class="product-link">{{$item->nama}}</a></h2>
                             <div class="pricing-meta">
                                 <ul>

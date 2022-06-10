@@ -10,7 +10,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Detail Produk</li>
+                        <li class="breadcrumb-item active" aria-current="page">Detail Jadwal</li>
                     </ol>
                 </nav>
             </div>
@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="card-title">Detail Produk</h4>
+                            <h4 class="card-title">Detail Jadwal</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -30,44 +30,44 @@
                                     <li class="list-group-item">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <img src="{{asset('storage/produk/' . $data->gambar)}}" class="img-thumbnail w-100" alt="">
+                                                <img src="/img/jadwal/{{ $data->gambar }}" class="img-thumbnail w-100" alt="">
                                             </div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-md-4">Kategori Produk</div>
+                                            <div class="col-md-4">Kategori Jadwal</div>
                                             <div class="col-md-8 font-weight-bold">{{$data->kategori->nama}}</div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-md-4">Kategori Produk</div>
+                                            <div class="col-md-4">Kategori Jadwal</div>
                                             <div class="col-md-8 font-weight-bold">{{$data->kategori->nama}}</div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-md-4">Nama Produk</div>
+                                            <div class="col-md-4">Nama Jadwal</div>
                                             <div class="col-md-8 font-weight-bold">{{$data->nama}}</div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-md-4">Harga Produk</div>
+                                            <div class="col-md-4">Harga Jadwal</div>
                                             <div class="col-md-8 font-weight-bold">Rp {{ number_format($data->harga, 0, ',', '.')}}</div>
 
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-md-4">Stok Produk</div>
+                                            <div class="col-md-4">Stok Jadwal</div>
                                             <div class="col-md-8 font-weight-bold">{{$data->stok}}</div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-md-4">Deskripsi Produk</div>
+                                            <div class="col-md-4">Deskripsi Jadwal</div>
                                             <div class="col-md-8 font-weight-bold">{{$data->deskripsi}}</div>
                                         </div>
                                     </li>

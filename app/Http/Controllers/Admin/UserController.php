@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::where('role', 'usr')->get();
+        $data = User::all();
         if ($request->ajax()) {
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -41,6 +41,14 @@ class UserController extends Controller
                 ->make(true);
         }
         return view('user.index', compact('data'));
+    }
+
+    public function getUserFilter(Request $request, $role)
+    {
+        $data = User::where('role', $role)->get();
+        $roleNih = $role;
+
+        return view('user.index', compact('data', 'roleNih'));
     }
 
     /**

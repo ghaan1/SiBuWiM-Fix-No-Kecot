@@ -14,7 +14,10 @@
                         <li><a href="{{route('beranda')}}">Beranda</a></li>
                         <li>Daftar Jadwal</li>
                     </ul>
-                </div>
+                </div> <br> <br>
+                @foreach($kategori as $item)
+                <a href="{{ route('beranda.listprodukkategori', $item->id)}}" class="btn btn-primary">{{$item->nama}}</a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -54,12 +57,12 @@
                 <article class="list-product">
                     <div class="img-block">
                         <a href="{{route('beranda.detailproduk', $item->id)}}" class="thumbnail">
-                            <img class="first-img w-100" src="{{asset('storage/produk/' . $item->gambar)}}" alt="" />
+                            <img class="first-img w-100" src="/img/jadwal/{{$item->gambar}}" alt="" />
                         </a>
                     </div>
                     <div class="product-decs">
                         <a class="inner-link" href="shop-4-column.html"><span class="text-uppercase">{{$item->kategori->nama}}</span></a>
-                        <h2><a href="{{route('produk.show', 1)}}" class="product-link" style="font-size: 0.6em;">{{$item->nama}}</a></h2>
+                        <h2><a href="{{route('beranda.detailproduk', $item->id)}}" class="product-link" style="font-size: 0.6em;">{{$item->nama}}</a></h2>
                         <div class="pricing-meta">
                             <ul>
                                 <li class="current-price" style="font-size: 1.5em;">Rp {{number_format($item->harga, 0, ',', '.')}}</li>

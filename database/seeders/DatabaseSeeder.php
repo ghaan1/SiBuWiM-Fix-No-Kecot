@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Malang',
             'no_hp' => '085648989767',
             'email' => 'admin@gmail.com',
-            'role' => 'adm',
+            'role' => 'Admin',
             'password' => Hash::make('admin2021'),
             'email_verified_at' => now()
         ]);
@@ -31,8 +31,28 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Malang',
             'no_hp' => '085648989767',
             'email' => 'user@gmail.com',
-            'role' => 'usr',
+            'role' => 'User',
             'password' => Hash::make('user2021'),
+            'email_verified_at' => now()
+        ]);
+
+        User::create([
+            'nama' => 'Manager',
+            'alamat' => 'Malang',
+            'no_hp' => '085648989767',
+            'email' => 'manager@gmail.com',
+            'role' => 'Manager',
+            'password' => Hash::make('manager2021'),
+            'email_verified_at' => now()
+        ]);
+
+        User::create([
+            'nama' => 'PO',
+            'alamat' => 'Malang',
+            'no_hp' => '085648989767',
+            'email' => 'po@gmail.com',
+            'role' => 'PO',
+            'password' => Hash::make('po2021'),
             'email_verified_at' => now()
         ]);
     }

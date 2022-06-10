@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-content">
-                    <h1 class="breadcrumb-hrading">Detail Produk</h1>
+                    <h1 class="breadcrumb-hrading">Detail Jadwal</h1>
                     <ul class="breadcrumb-links">
                         <li><a href="{{route('beranda')}}">Beranda</a></li>
                         <li>{{$produk->nama}}</li>
@@ -27,7 +27,7 @@
                 <div class="product-details-img product-details-tab">
                     <div class="zoompro-wrap zoompro-2">
                         <div class="zoompro-border zoompro-span">
-                            <img src="{{asset('storage/produk/'. $produk->gambar)}}" alt="" />
+                            <img src="/img/jadwal/{{$produk->gambar}}" alt="" />
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                             <li class="old-price not-cut text-danger">Rp {{number_format($produk->harga, 0, ',', '.')}}</li>
                         </ul>
                     </div>
-                    <p>Stok Produk : {{ $produk->stok}}</p>
+                    <p>Tiket Tersisa : {{ $produk->stok}}</p>
                     <hr>
                     <p>{{$produk->deskripsi}}</p>
                     <hr>

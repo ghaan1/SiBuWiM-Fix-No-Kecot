@@ -60,7 +60,7 @@
                                 @foreach ($itemcart->detail as $item)
                                 <tr>
                                     <td class="product-thumbnail">
-                                        <a href="{{route('beranda.detailproduk', $item->produk->id)}}"><img src="{{asset('storage/produk/' . $item->produk->gambar)}}" class="w-50" alt="" /></a>
+                                        <a href="{{route('beranda.detailproduk', $item->produk->id)}}"><img src="/img/jadwal/{{ $item->produk->gambar}}" class="w-50" alt="" /></a>
                                     </td>
                                     <td class="product-name text-left">
                                         <span class="badge badge-info">

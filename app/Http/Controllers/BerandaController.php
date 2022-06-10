@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Produk;
+use App\Models\Kategori;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,15 @@ class BerandaController extends Controller
     public function listProduk()
     {
         $produk = Produk::with('kategori')->latest()->paginate(8);
-        return view('lp.produk', compact('produk'));
+        $kategori = Kategori::paginate(3);
+        return view('lp.produk', compact('produk', 'kategori'));
+    }
+
+    public function listProdukKategori($id)
+    {
+        $produk = Produk::where('kategori_id', $id)->with('kategori')->latest()->paginate(8);
+        $kategori = Kategori::paginate(3);
+        return view('lp.produk', compact('produk', 'kategori'));
     }
 
     public function detailProduk($id)

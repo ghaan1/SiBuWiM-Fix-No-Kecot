@@ -10,7 +10,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Edit Produk</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Jadwal</li>
                     </ol>
                 </nav>
             </div>
@@ -34,7 +34,7 @@
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="card-title">Edit Produk</h4>
+                            <h4 class="card-title">Edit Jadwal</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -46,7 +46,7 @@
                                     <div class="form-group mb-3">
                                         <label>Kategori</label>
                                         <select class="form-control" id="kategori_id" name="kategori_id">
-                                            <option selected hidden disabled>-- Pilih Kategori Produk --</option>
+                                            <option selected hidden disabled>-- Pilih Kategori Jadwal --</option>
                                             @foreach ($kategori as $item)
                                             <option value="{{$item->id}}" {{$data->kategori_id == $item->id ? 'selected' : ''}}>{{$item->nama}}</option>
                                             @endforeach
@@ -56,21 +56,21 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Nama Produk</label>
+                                        <label>Nama Jadwal</label>
                                         <input type="text" class="form-control" id="nama" name="nama" value="{{$data->nama}}">
                                         @error('nama')
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Harga Produk</label>
+                                        <label>Harga Jadwal</label>
                                         <input type="number" min="0" class="form-control" id="harga" name="harga" value={{$data->harga}}>
                                         @error('harga')
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Stok Produk</label>
+                                        <label>Stok Jadwal</label>
                                         <input type="number" min="0" class="form-control" id="stok" name="stok" value="{{$data->stok}}">
                                         @error('stok')
                                         <small class="text-danger">{{$message}}</small>
@@ -84,7 +84,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Gambar Produk</label>
+                                        <label>Gambar Jadwal</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="gambar" name="gambar">
                                             <label class="custom-file-label" for="gambar">{{$data->gambar ? $data->gambar : 'Choose file'}}</label>

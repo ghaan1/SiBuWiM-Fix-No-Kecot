@@ -49,8 +49,13 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        <a href="{{ route('user.filter', 'User')}}" class="btn btn-primary">User</a>
+                        <a href="{{ route('user.filter', 'Manager')}}" class="btn btn-primary">Manager</a>
+                        <a href="{{ route('user.filter', 'Admin')}}" class="btn btn-primary">Admin</a>
+                        <a href="{{ route('user.filter', 'PO')}}" class="btn btn-primary">PO</a>
                         <div class="row p-4">
                             <div class="col-12">
+                                @if(!isset($roleNih))
                                 <table id="table-users" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -59,11 +64,44 @@
                                             <th>Email</th>
                                             <th>Alamat</th>
                                             <th>No. HP</th>
+                                            <th>Role</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
                                 </table>
+                                @endif
+                                @if(isset($roleNih))
+                                <table id="table-users-filter" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Alamat</th>
+                                            <th>No. HP</th>
+                                            <th>Role</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($data as $key => $item)
+                                            <td>{{ $key+1 }}</td>
+                                            <td>{{ $item->nama}}</td>
+                                            <td>{{ $item->email}}</td>
+                                            <td>{{ $item->alamat}}</td>
+                                            <td>{{ $item->no_hp}}</td>
+                                            <td>{{ $item->role}}</td>
+                                            <td>
+                                            <div class="btn-group" role="group">
+                                                <a href="javascript:void(0)" data-toggle="modal" data-id="{{$item->id}}" data-target="#editUserModal" data-url="user/{{$item->id}}" class="btn btn-sm btn-info btn-edit-user"><i class="material-icons">edit</i></a>
+                                                <a href="javascript:void(0)" data-toggle="modal" data-id="{{$item->id}}" data-target="#deleteUserModal" class="btn btn-sm btn-danger btn-delete-user"><i class="material-icons">delete</i></a>
+                                            </div>
+                                            </td>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                @endif
                             </div>
                         </div>
                     </div>

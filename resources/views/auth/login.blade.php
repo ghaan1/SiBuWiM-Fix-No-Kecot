@@ -29,6 +29,7 @@
         <h5>Belum punya akun?
             <a href="{{route('register')}}">Register Sekarang!</a>
         </h5>
+        <a href="/forget-password">Lupa password?</a><br>
         <a href="{{route('beranda')}}">Kembali ke beranda</a>
     </div>
 </div>
