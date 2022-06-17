@@ -16,12 +16,14 @@ class CreateProduksTable extends Migration
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kategori_id');
+            $table->unsignedBigInteger('armada_id');
             $table->string('nama')->nullable();
             $table->bigInteger('harga')->nullable()->default(0);
             $table->bigInteger('stok')->nullable()->default(1);
             $table->text('deskripsi')->nullable();
             $table->text('gambar')->nullable();
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
+            $table->foreign('armada_id')->references('id')->on('armada')->onDelete('cascade');
             $table->timestamps();
         });
     }

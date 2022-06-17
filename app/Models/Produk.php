@@ -29,4 +29,9 @@ class Produk extends Model
     {
         return $this->belongsTo(Kategori::class, 'kategori_id');
     }
+
+    public function armada()
+    {
+        return $this->belongsTo(Armada::class, 'armada_id');
+    }
 }

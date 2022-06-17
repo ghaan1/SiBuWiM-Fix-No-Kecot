@@ -10,6 +10,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartDetailController;
+use App\Http\Controllers\ArmadaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Auth;
@@ -61,5 +62,6 @@ Route::middleware(['verified'])->group(function () {
         Route::get('userfilter/{role}', [UserController::class, 'getUserFilter'])->name('user.filter');
         Route::resource('produk', AdminProdukController::class);
         Route::resource('kategori', KategoriController::class);
+        Route::resource('armada', ArmadaController::class);
     });
 });

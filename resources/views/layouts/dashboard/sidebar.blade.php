@@ -34,6 +34,12 @@
                         <p>Data PO</p>
                     </a>
                 </li>
+                <li class="nav-item {{Request::segment(1) == 'armada' ? 'active' : ''}}">
+                    <a class="nav-link" href="{{route('armada.index')}}">
+                        <i class="material-icons">bus_alert</i>
+                        <p>Data Armada</p>
+                    </a>
+                </li>
                 <li class="nav-item {{Request::segment(1) == 'produk' ? 'active' : ''}}">
                     <a class="nav-link" href="{{route('produk.index')}}">
                         <i class="material-icons">inventory_2</i>
