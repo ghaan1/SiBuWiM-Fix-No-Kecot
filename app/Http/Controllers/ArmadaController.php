@@ -59,7 +59,7 @@ class ArmadaController extends Controller
      */
     public function store(ArmadaRequest $request)
     {
-        $this->model->create($request->only(['stock', 'tarif']));
+        $this->model->create($request->only(['nama','stock', 'tarif']));
         return redirect()->route('armada.index')->with('success', 'Data berhasil disimpan');
     }
 
@@ -103,6 +103,7 @@ class ArmadaController extends Controller
     public function update(Request $request, $id)
     {
         $this->model->update([
+            'nama' => $request->nama,
             'stock' => $request->stock_edit,
             'tarif' => $request->tarif_edit,
         ], $id);

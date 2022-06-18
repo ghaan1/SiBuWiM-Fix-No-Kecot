@@ -22,7 +22,7 @@
 
 <div class="cart-main-area mb-5">
     <div class="container">
-        <h3 class="cart-page-title">Order Anda saat ini</h3>
+        <h3 class="cart-page-title">Order Saat Ini</h3>
         <div class="row">
             <div class="col-12">
                 <div class="table-content table-responsive cart-table-content">
@@ -79,21 +79,20 @@
                             </tr>
                             @foreach ($order->cart->detail as $id)
                             <tr>
-                                <td></td>
-                                <td>
-                                    <a href="{{route('beranda.detailproduk', $id->produk->id)}}"><img src="{{asset('storage/produk/' . $id->produk->gambar)}}" class="w-50" alt="" /></a>
-                                </td>
+                                <!-- <td>
+                                    <a href="{{route('beranda.detailproduk', $id->produk->id)}}"><img src="{{asset('img/jadwal/' . $id->produk->gambar)}}" style="width : 200px;" alt="" /></a>
+                                </td> -->
                                 <td>
                                     <span class="badge badge-info">
                                         {{$id->produk->kategori->nama}}
                                     </span>
                                     <br>
-                                    <a href="{{route('beranda.detailproduk', $id->produk->id)}}" class="text-dark">{{$id->produk->nama}}</a>
                                 </td>
+                                <td><a href="{{route('beranda.detailproduk', $id->produk->id)}}" class="text-dark">{{$id->produk->nama}} - {{$id->produk->nama_tujuan}}</a></td>
                                 <td>{{$id->qty}}</td>
                                 <td>Rp {{ number_format($id->subtotal, 0, ',', '.')}}</td>
 
-                                <td>
+                                <!-- <td>
                                     @if (isset($id->alamat))
                                     {{$id->alamat->nama_penerima}}, {{$id->alamat->alamat}}
                                     <br>
@@ -106,8 +105,8 @@
                                     @else
                                     Pengiriman Kosong
                                     @endif
-                                </td>
-                                <td></td>
+                                </td> -->
+                                <td><a href="{{route('order.cetak', $order->cart->id)}}">Cetak Tiket</a></td>
                                 <td></td>
                             </tr>
                             @endforeach

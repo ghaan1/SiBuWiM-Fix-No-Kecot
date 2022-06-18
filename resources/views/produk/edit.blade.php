@@ -56,21 +56,47 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Nama Jadwal</label>
+                                        <label>Armada</label>
+                                        <select class="form-control" id="kategori_id" name="kategori_id">
+                                            <option selected hidden disabled>-- Pilih Armada Jadwal --</option>
+                                            @foreach ($armada as $item)
+                                            <option value="{{$item->id}}" {{$data->armada_id == $item->id ? 'selected' : ''}}>{{$item->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('armada_id')
+                                        <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Asal</label>
                                         <input type="text" class="form-control" id="nama" name="nama" value="{{$data->nama}}">
                                         @error('nama')
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Harga Jadwal</label>
+                                        <label>Tujuan</label>
+                                        <input type="text" class="form-control" id="nama_tujuan" name="nama_tujuan" value="{{$data->nama_tujuan}}">
+                                        @error('nama_tujuan')
+                                        <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Lama Perjalanan</label>
+                                        <input type="number" min="0" class="form-control" id="waktu_tempuh" name="waktu_tempuh" value={{$data->waktu_tempuh}}>
+                                        @error('waktu_tempuh')
+                                        <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Harga Tetap</label>
                                         <input type="number" min="0" class="form-control" id="harga" name="harga" value={{$data->harga}}>
                                         @error('harga')
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Stok Jadwal</label>
+                                        <label>Ketersediaan</label>
                                         <input type="number" min="0" class="form-control" id="stok" name="stok" value="{{$data->stok}}">
                                         @error('stok')
                                         <small class="text-danger">{{$message}}</small>
@@ -84,7 +110,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label>Gambar Jadwal</label>
+                                        <label>Gambar Bus</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="gambar" name="gambar">
                                             <label class="custom-file-label" for="gambar">{{$data->gambar ? $data->gambar : 'Choose file'}}</label>

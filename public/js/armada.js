@@ -8,6 +8,7 @@ $(function () {
             url: `${APP_URL}/armada`
         }, columns: [
             { data: "DT_RowIndex", name: "DT_RowIndex", className: "text-center", width: "4%", },
+            { data: "nama", name: "nama", className: "text-center" },
             { data: "stock", name: "stock", className: "text-center" },
             { data: "tarif", name: "tarif", className: "text-center" },
             { data: "action", name: "action", className: "text-center", orderable: false, searchable: false, }
@@ -28,6 +29,7 @@ $(function () {
                 $('#loading').hide();
                 $('#body-modal-edit').show();
                 $('#form-edit-armada').attr('action', `${APP_URL}/${url}`);
+                $('#nama').val(res.data.nama);
                 $('#stock_edit').val(res.data.stock);
                 $('#tarif_edit').val(res.data.tarif);
             },

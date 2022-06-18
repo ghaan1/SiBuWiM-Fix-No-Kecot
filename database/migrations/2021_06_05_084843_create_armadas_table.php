@@ -15,6 +15,7 @@ class CreateArmadasTable extends Migration
     {
         Schema::create('armada', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             $table->double('tarif');
             $table->bigInteger('stock');
             $table->timestamps();

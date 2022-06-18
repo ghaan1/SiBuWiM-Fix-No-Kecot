@@ -35,7 +35,8 @@
             <div class="col-xl-8 col-lg-4 col-md-12 ">
                 <div class="product-details-content">
                     <h2>{{$produk->kategori->nama}}</h2>
-                    <h1>{{$produk->nama}}</h1>
+                    <h1>{{$produk->nama}} - {{$produk->nama_tujuan}}</h1>
+                    <h3>{{$produk->waktu_tempuh}} Jam Perjalanan</h3>
                     <div class="pricing-meta">
                         <ul>
                             <li class="old-price not-cut text-danger">Rp {{number_format($produk->harga, 0, ',', '.')}}</li>

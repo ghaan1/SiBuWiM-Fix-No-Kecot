@@ -38,11 +38,12 @@
                             <thead>
                                 <tr>
                                     <th>Gambar</th>
-                                    <th>Nama Produk</th>
+                                    <th>Nama PO</th>
+                                    <th>Rute</th>
                                     <th>Harga Satuan</th>
                                     <th>Qty</th>
                                     <th>Subtotal</th>
-                                    <th>Alamat Pengiriman</th>
+                                    <!-- <th>Alamat Pengiriman</th> -->
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -66,8 +67,10 @@
                                         <span class="badge badge-info">
                                             {{$item->produk->kategori->nama}}
                                         </span>
+                                    </td>
+                                    <td class="product-name text-center">
                                         <br>
-                                        <a href="{{route('beranda.detailproduk', $item->produk->id)}}">{{$item->produk->nama}}</a>
+                                        <a href="{{route('beranda.detailproduk', $item->produk->id)}}">{{$item->produk->nama}} - {{$item->produk->nama_tujuan}} </a>
                                     </td>
 
                                     <td class="product-price-cart"><span class="amount">{{number_format($item->produk->harga, 0, ',', '.')}}</span></td>
@@ -82,7 +85,7 @@
 
                                     </td>
                                     <td class="product-subtotal">{{number_format($item->subtotal, 0, ',', '.')}}</td>
-                                    <td>
+                                    <!-- <td>
                                         @if (isset($item->alamat))
                                         {{$item->alamat->nama_penerima}}, {{$item->alamat->alamat}}
                                         <br>
@@ -96,9 +99,9 @@
                                         @else
                                         Pilih alamat pengiriman
                                         @endif
-                                    </td>
+                                    </td> -->
                                     <td class="product-remove">
-                                        <a href="javascript:void(0)" class="text-dark btn-edit-alamat-produk" data-url="{{route('editalamatproduk', $item->id)}}" data-toggle="modal" data-target="#editAlamatProdukModal"><i class="fa fa-edit"></i></a>
+                                        <!-- <a href="javascript:void(0)" class="text-dark btn-edit-alamat-produk" data-url="{{route('editalamatproduk', $item->id)}}" data-toggle="modal" data-target="#editAlamatProdukModal"><i class="fa fa-edit"></i></a> -->
                                         <a href="javascript:void(0)" data-id="{{$item->id}}" class="delete-produk-cart"><i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
@@ -121,7 +124,8 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-8 mb-4">
+            <div class="col-md-8 mb-4"></div>
+            <!-- <div class="col-md-8 mb-4">
                 <div class="cart-tax">
                     <button type="button" class="btn btn-sm btn-primary mb-2" data-toggle="modal" data-target="#tambahAlamatPengirimanModal">
                         Tambah Alamat Pengiriman
@@ -188,7 +192,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-4 mb-4">
                 <div class="grand-totall">
                     <div class="title-wrap">

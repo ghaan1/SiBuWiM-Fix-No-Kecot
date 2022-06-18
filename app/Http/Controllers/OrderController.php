@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\CartDetail;
 use App\Models\Order;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 use function App\Helpers\uploadFile;
 
@@ -45,13 +47,13 @@ class OrderController extends Controller
             ->where('user_id', Auth::user()->id)
             ->first();
         if ($itemcart) {
-            foreach ($itemcart->detail as $item) {
-                if ($item->alamat_pengiriman_id != null) {
-                    continue;
-                } else {
-                    return redirect()->route('cart.index')->with('error', 'Alamat pengiriman tidak boleh kosong');
-                }
-            }
+            // foreach ($itemcart->detail as $item) {
+            //     if ($item->alamat_pengiriman_id != null) {
+            //         continue;
+            //     } else {
+            //         return redirect()->route('cart.index')->with('error', 'Alamat pengiriman tidak boleh kosong');
+            //     }
+            // }
             $order = Order::create([
                 'cart_id' => $itemcart->id,
                 'user_id' => Auth::user()->id
@@ -150,5 +152,12 @@ class OrderController extends Controller
             return redirect()->route('order.index');
         }
         return redirect()->back()->with('error', 'Upload gagal');
+    }
+
+    public function cetak($id)
+    {
+        $data = CartDetail::where('cart_id', $id)->first();
+        $pdf = PDF::loadview('lp.cetak', ['data' => $data])->setPaper('a4', 'landscape');
+        return $pdf->stream();
     }
 }

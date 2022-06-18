@@ -46,6 +46,13 @@
                         <form action="{{route('armada.store')}}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
+                                <label>Nama</label>
+                                <input type="text" class="form-control" id="nama" name="nama">
+                                @error('nama')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-3">
                                 <label>Jumlah</label>
                                 <input type="text" class="form-control" id="stock" name="stock">
                                 @error('stock')
@@ -78,7 +85,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Jumlah Armada</th>
+                                            <th>Nama</th>
+                                            <th>Jumlah</th>
                                             <th>Tarif</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -142,16 +150,23 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group mb-3">
+                            <label>Nama Armada</label>
+                            <input type="text" class="form-control" id="nama" name="nama">
+                            @error('nama')
+                            <small class="text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
                             <label>Jumlah Armada</label>
                             <input type="text" class="form-control" id="stock_edit" name="stock_edit">
-                            @error('nama')
+                            @error('stock')
                             <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label>Tarif</label>
                             <input type="text" class="form-control" id="tarif_edit" name="tarif_edit">
-                            @error('nama')
+                            @error('tarif')
                             <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>

@@ -49,6 +49,7 @@ Route::middleware(['verified'])->group(function () {
     Route::get('upload-bukti/{id}', [OrderController::class, 'showUpload'])->name('showupload');
     Route::post('upload-bukti', [OrderController::class, 'uploadBukti'])->name('uploadBukti');
     Route::resource('order', OrderController::class);
+    Route::get('order/cetak/{id}', [OrderController::class, 'cetak'])->name('order.cetak');
     Route::resource('detail-cart', CartDetailController::class);
     Route::resource('alamat-pengiriman', AlamatPengirimanController::class);
 

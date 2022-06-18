@@ -62,7 +62,7 @@
                     </div>
                     <div class="product-decs">
                         <a class="inner-link" href="shop-4-column.html"><span class="text-uppercase">{{$item->kategori->nama}}</span></a>
-                        <h2><a href="{{route('beranda.detailproduk', $item->id)}}" class="product-link" style="font-size: 0.6em;">{{$item->nama}}</a></h2>
+                        <h2><a href="{{route('beranda.detailproduk', $item->id)}}" class="product-link">{{$item->nama}} - {{$item->nama_tujuan}}</a></h2>
                         <div class="pricing-meta">
                             <ul>
                                 <li class="current-price" style="font-size: 1.5em;">Rp {{number_format($item->harga, 0, ',', '.')}}</li>

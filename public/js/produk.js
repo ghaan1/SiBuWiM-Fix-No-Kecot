@@ -11,6 +11,8 @@ $(function () {
             { data: "gambar", name: "gambar", width: "15%", className: "text-center" },
             { data: "kategori.nama", name: "kategori.nama", className: "text-center" },
             { data: "nama", name: "nama", className: "text-center" },
+            { data: "nama_tujuan", name: "nama_tujuan", className: "text-center" },
+            { data: "waktu_tempuh", name: "waktu_tempuh", className: "text-center" },
             { data: "harga", name: "harga", className: "text-center" },
             { data: "stok", name: "stok", className: "text-center" },
             { data: "action", name: "action", className: "text-center", orderable: false, searchable: false, }

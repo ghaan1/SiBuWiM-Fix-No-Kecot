@@ -24,6 +24,7 @@ class ArmadaRequest extends FormRequest
     public function rules()
     {
         return [
+            'nama' => 'required',
             'stock' => 'required',
             'tarif' => 'required'
         ];
@@ -32,6 +33,7 @@ class ArmadaRequest extends FormRequest
     public function messages()
     {
         return [
+            'nama.required' => 'Nama armada harus diisi',
             'stock.required' => 'Jumlah armada harus diisi',
             'tarif.required' => 'Tarif harus diisi',
         ];

@@ -59,7 +59,7 @@
                         </div>
                         <div class="product-decs">
                             <a class="inner-link" href=""><span class="text-uppercase">{{$item->kategori->nama}}</span></a>
-                            <h2><a href="{{route('beranda.detailproduk', $item->id)}}" class="product-link">{{$item->nama}}</a></h2>
+                            <h2><a href="{{route('beranda.detailproduk', $item->id)}}" class="product-link">{{$item->nama}} - {{$item->nama_tujuan}} ({{$item->waktu_tempuh}} Jam)</a></h2>
                             <div class="pricing-meta">
                                 <ul>
                                     <li class="current-price">Rp {{number_format($item->harga, 0, ',', '.')}}</li>

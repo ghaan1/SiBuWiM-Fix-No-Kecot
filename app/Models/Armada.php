@@ -12,6 +12,6 @@ class Armada extends Model
     protected $table = 'armada';
 
     protected $fillable = [
-        'stock', 'tarif'
+        'nama', 'stock', 'tarif'
     ];
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProdukRequest;
 use App\Models\Kategori;
+use App\Models\Armada;
 use App\Models\Produk;
 use App\Repositories\Repository;
 use App\Services\OracleService;
@@ -61,7 +62,8 @@ class ProdukController extends Controller
     public function create()
     {
         $kategori = Kategori::all();
-        return view('produk.create', compact('kategori'));
+        $armada = Armada::all();
+        return view('produk.create', compact('kategori', 'armada'));
     }
 
     /**
@@ -73,7 +75,7 @@ class ProdukController extends Controller
     public function store(ProdukRequest $request)
     {
 
-        $payload = $request->only(['kategori_id', 'nama', 'harga', 'stok', 'deskripsi']);
+        $payload = $request->only(['kategori_id', 'armada_id', 'nama', 'nama_tujuan', 'waktu_tempuh', 'harga', 'stok', 'deskripsi']);
         $image= $request->file('gambar');
         $imageName = $image->getClientOriginalName();
         $image->move('img/jadwal', $imageName);
@@ -104,8 +106,9 @@ class ProdukController extends Controller
     public function edit($id)
     {
         $kategori = Kategori::all();
+        $armada = Armada::all();
         $data = $this->model->getModel()->where('id', $id)->first();
-        return view('produk.edit', compact('data', 'kategori'));
+        return view('produk.edit', compact('data', 'kategori', 'armada'));
     }
 
     /**
@@ -118,7 +121,7 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $produk = $this->model->show($id);
-        $payload = $request->only(['kategori_id', 'nama', 'harga', 'stok', 'deskripsi']);
+        $payload = $request->only(['kategori_id', 'nama', 'nama_tujuan', 'waktu_tempuh', 'harga', 'stok', 'deskripsi']);
         if ($request->hasFile('gambar')) {
             $payload['gambar'] = updateFile($produk->gambar, 'produk', $request->file('gambar'), 'produk');
         } else {

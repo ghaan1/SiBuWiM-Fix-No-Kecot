@@ -58,6 +58,8 @@
                                             <th>Gambar</th>
                                             <th>PO</th>
                                             <th>Asal</th>
+                                            <th>Tujuan</th>
+                                            <th>Lama Perjalanan (Jam)</th>
                                             <th>Harga Tetap</th>
                                             <th>Ketersediaan</th>
                                             <th>Aksi</th>

@@ -55,9 +55,35 @@
                                         @enderror
                                     </div>
                                     <div class="form-group mb-3">
+                                        <label>Armada</label>
+                                        <select class="form-control" id="armada_id" name="armada_id">
+                                            <option selected hidden disabled>-- Pilih Armada --</option>
+                                            @foreach ($armada as $item)
+                                            <option value="{{$item->id}}">{{$item->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('armada_id')
+                                        <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label>Asal</label>
                                         <input type="text" class="form-control" id="nama" name="nama">
                                         @error('nama')
+                                        <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Tujuan</label>
+                                        <input type="text" class="form-control" id="nama_tujuan" name="nama_tujuan">
+                                        @error('nama_tujuan')
+                                        <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Lama Perjalanan</label>
+                                        <input type="number" class="form-control" id="waktu_tempuh" name="waktu_tempuh">
+                                        @error('waktu_tempuh')
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                     </div>
