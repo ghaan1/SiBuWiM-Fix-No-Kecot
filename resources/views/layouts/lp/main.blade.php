@@ -69,7 +69,9 @@
 ============================================ -->
 
     <!--====== Vendors js ======-->
+    @if(Request::segment(1) != 'komplain-user')
     <script src="{{asset('templates/landing-page')}}/js/vendor/jquery-3.5.1.min.js"></script>
+    @endif
     <script src="{{asset('templates/landing-page')}}/js/vendor/modernizr-3.7.1.min.js"></script>
 
     <!--====== Plugins js ======-->

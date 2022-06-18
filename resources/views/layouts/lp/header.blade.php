@@ -119,6 +119,7 @@
                                         <li><a href="{{route('beranda.listproduk')}}">Jadwal</a></li>
                                         @if (Auth::check())
                                         <li><a href="{{route('order.index')}}">Order</a></li>
+                                        <li><a href="{{route('komplain-user.index')}}">Komplain</a></li>
                                         @endif
                                     </ul>
                                 </div>

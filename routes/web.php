@@ -7,6 +7,9 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AlamatPengirimanController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\HalteController;
+use App\Http\Controllers\KomplainController;
+use App\Http\Controllers\KomplainUserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartDetailController;
@@ -52,13 +55,17 @@ Route::middleware(['verified'])->group(function () {
     Route::get('order/cetak/{id}', [OrderController::class, 'cetak'])->name('order.cetak');
     Route::resource('detail-cart', CartDetailController::class);
     Route::resource('alamat-pengiriman', AlamatPengirimanController::class);
+    Route::resource('komplain-user', KomplainUserController::class);
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/profil', [UserController::class, 'profil'])->name('user.profil');
         Route::get('transaksi/cetak', [AdminOrderController::class, 'cetak'])->name('transaksi.cetak');
-
+        Route::get('komplain/done/{id}', [KomplainController::class, 'done'])->name('komplain.done');
+        Route::get('komplain/undone/{id}', [KomplainController::class, 'undone'])->name('komplain.undone');
         Route::resource('dashboard', DashboardController::class)->only(['index']);
         Route::resource('transaksi', AdminOrderController::class);
+        Route::resource('halte', HalteController::class);
+        Route::resource('komplain', KomplainController::class);
         Route::resource('user', UserController::class);
         Route::get('userfilter/{role}', [UserController::class, 'getUserFilter'])->name('user.filter');
         Route::resource('produk', AdminProdukController::class);
